@@ -1,0 +1,223 @@
+.shopping__wishlist__table {
+    margin-bottom: 30px;
+}
+
+.shopping__wishlist__table table {
+    width: 100%;
+}
+
+.shopping__wishlist__table table thead {
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.shopping__wishlist__table table thead tr th {
+    color: #111111;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 25px;
+}
+
+.shopping__wishlist__table table tbody tr {
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: 1px;
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    80% {
+        transform: translateY(-5px);
+    }
+}
+
+.shopping__wishlist__table table tbody tr:hover {
+    border-right: 1px solid #e53637;
+}
+
+.shopping__wishlist__table table tbody tr td {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.shopping__wishlist__table table tbody tr td.product__wishlist__item {
+    display: flex;
+    align-items: center;
+    width: 400px;
+}
+
+.shopping__wishlist__table table tbody tr td.product__wishlist__item .product__wishlist__item__pic {
+    float: left;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.shopping__wishlist__table table tbody tr td.product__wishlist__item .product__wishlist__item__text {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.shopping__wishlist__table table tbody tr td.product__wishlist__item .product__wishlist__item__text a {
+    color: #111111;
+    font-size: 15px;
+    margin: auto;
+}
+
+.shopping__wishlist__table table tbody tr td.product__wishlist__item .product__wishlist__item__text h5 {
+    color: #0d0d0d;
+    font-weight: 700;
+}
+
+.shopping__wishlist__table table tbody tr td.quantity__item {
+    width: 175px;
+}
+
+.shopping__wishlist__table table tbody tr td.quantity__item .quantity .pro-qty-2 {
+    width: 80px;
+}
+
+.shopping__wishlist__table table tbody tr td.quantity__item .quantity .pro-qty-2 input {
+    width: 50px;
+    border: none;
+    text-align: center;
+    color: #111111;
+    font-size: 16px;
+}
+
+.shopping__wishlist__table table tbody tr td.quantity__item .quantity .pro-qty-2 .qtybtn {
+    font-size: 16px;
+    color: #888888;
+    width: 10px;
+    cursor: pointer;
+}
+
+.shopping__wishlist__table table tbody tr td.wishlist__price {
+    color: #111111;
+    font-size: 18px;
+    font-weight: 700;
+    width: 140px;
+}
+
+.shopping__wishlist__table table tbody tr td.wishlist__close i {
+    font-size: 18px;
+    color: #111111;
+    height: 40px;
+    width: 40px;
+    background: #f3f2ee;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 15px;
+}
+
+.shopping__wishlist__table table tbody tr td.wishlist__close i:hover {
+    background-color: #e53637;
+    border-color: #e53637;
+    opacity: 0.3;
+}
+
+.continue__btn {
+    float: right;
+}
+
+.add__btn {
+    background: #111111;
+    border-color: #111111;
+    margin-right: 24px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 1px solid #e1e1e1;
+    padding: 8px 24px;
+    cursor: pointer;
+
+}
+
+/* .add__btn:hover {
+    animation: bounce 1.5s ease-in-out ;
+} */
+
+.add__btn a {
+    color: #ffffff;
+}
+
+.wistlist__title {
+    position: relative;
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.wistlist__title-border {
+    position: relative;
+    z-index: 1;
+}
+
+/* .wistlist__title-border--underline::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 4px;
+    left: 0;
+    bottom: 7px;
+    z-index: -1;
+    background-color: #e53637;
+} */
+
+/* Mobile */
+@media (max-width: 739px) {
+
+    .shopping__wishlist__table table thead {
+        display: none;
+    }
+
+    .shopping__wishlist__table table tbody tr {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ebebeb;
+        align-items: center;
+        padding: 42px 0;
+        position: relative;
+        margin-bottom: 5px;
+    }
+
+    .shopping__wishlist__table table tbody tr td {
+        padding: 10px 0;
+    }
+
+    .shopping__wishlist__table table tbody tr td.product__wishlist__item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .shopping__wishlist__table table tbody tr td.wishlist__price {
+        width: 100%;
+        text-align: center;
+    }
+
+    .add__btn {
+        margin: 0;
+    }
+
+    .wishlist__close {
+        position: absolute;
+        right: 6px;
+        top: 0;
+    }
+
+    .continue__btn {
+        float: none;
+    }
+}
