@@ -86,6 +86,10 @@ export default function ProductDetail() {
     const handleAddToCart = async () => {
         if (validateProductDetail()) {
             const productDetailCreated = listDetails.find(detail => (detail.size._id == sizeSelected && detail.color._id == colorSelected));
+            if(productDetailCreated.stock < quantity){
+                notifyErrorMessage('Vượt quá số lượng')
+                return 
+            }
             const data = {
                 productDetail: productDetailCreated._id,
                 customer: user.refId,
@@ -178,6 +182,11 @@ export default function ProductDetail() {
                                                     <span> - 5 Reviews</span>
                                                 </div>
                                             </div>
+                                                <div> Stock:  &nbsp;
+                                                {listDetails ? listDetails.map((detail) =>
+                                                    (detail.color._id == colorSelected && detail.size._id == sizeSelected ? detail.stock : ''),
+                                                ) : ''}
+                                                </div>
                                             <div className='product__details__text'>
                                                 <div className='d-flex justify-content-between'>
                                                     <h3 className='text-left'>${salePrice == 0 ? exportPrice : salePrice}
@@ -223,7 +232,7 @@ export default function ProductDetail() {
                                                         <div className='pro-qty'>
                                                             <input type='number'
                                                                    onChange={(e) => setQuantity(e.target.value)}
-                                                                   value={quantity} />
+                                                                   value={quantity} min="1" />
                                                         </div>
                                                     </div>
                                                 </div>

@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import CartService from '../../services/cart_service';
 import { debounce } from 'lodash';
+import { createNotification, notifyErrorMessage, notifySuccessMessage } from '../../core/utils/notify-action';
+
 
 const CartItems = ({ itemCart, getItemsCart, saveComplete }) => {
     const { _id, name, productDetail, quantity } = itemCart;
@@ -12,6 +14,10 @@ const CartItems = ({ itemCart, getItemsCart, saveComplete }) => {
         updateQuantity();
     }, [quantityInput]);
     const updateQuantity = async () => {
+        if (quantityInput > productDetail.stock ) {
+            notifyErrorMessage('Vượt quá số lượng')
+            return
+        }
         const data = await CartService.update({
             _id,
             name,
@@ -21,6 +27,10 @@ const CartItems = ({ itemCart, getItemsCart, saveComplete }) => {
         saveComplete()
     };
     const handleSetQuantity = (evt) => {
+        if (evt.target.value > productDetail.stock ) {
+            notifyErrorMessage('Vượt quá số lượng')
+            return
+        }
         setQuantityInputTmp(evt.target.value);
         debouncedQuantity(evt.target.value);
     };
